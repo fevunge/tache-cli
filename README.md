@@ -5,10 +5,12 @@ CLI Task Management System Enterprise-Grade
 ![Taskly Logo](./assets/logo/taskly-logo.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/weather-app)](https://github.com/yourusername/weather-app/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/yourusername/weather-app)](https://github.com/yourusername/weather-app/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/yourusername/weather-app)](https://github.com/yourusername/weather-app/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/yourusername/weather-app)](https://github.com/yourusername/weather-app/pulls)
+
+[![GitHub Stars](https://img.shields.io/github/stars/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/issues)
+
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/pulls)
 
 ## Table of Contents
 
