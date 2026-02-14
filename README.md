@@ -1,4 +1,4 @@
-# Taskly
+# Tâche
 
 CLI Task Management System Enterprise-Grade
 
