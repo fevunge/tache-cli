@@ -29,7 +29,13 @@ CLI Task Management System Enterprise-Grade
 
 ## Introduction
 
-Weather affects our daily lives in countless ways. Whether you're planning a trip, choosing your outfit for the day, or making decisions that depend on weather conditions, having reliable weather information is essential. The Amazing Weather App aims to provide you with the most accurate and up-to-date weather data.
+### Core features
+
+### Tech Stack
+
+- TypeScript
+- Node.js
+- PostgreSQL + Redis
 
 ## Demo
 
@@ -40,14 +46,18 @@ You can explore a live demo of The Amazing Weather App [here](https://weatherapp
 
 ## Features
 
-The Amazing Weather App comes with a wide range of features to enhance your weather-related experience:
+The Task Management CLI comes with a wide range of features to enhance your task management Enterprise-Grade experience:
 
-- **Real-time Weather Data**: Get access to real-time weather data for any location.
-- **Detailed Forecasts**: View hourly and daily weather forecasts with detailed information.
-- **Interactive Maps**: Explore interactive maps to visualize weather patterns.
-- **Weather Alerts**: Receive weather alerts and notifications for severe conditions.
-- **Customization**: Personalize the app with your favorite locations and weather preferences.
-- **Multi-language Support**: The app supports multiple languages to cater to a global audience.
+- **CRUD completo com validação Zod**
+- **Task scheduling com cron jobs**
+- **Real-time notifications (EventEmitter)**
+- **Export/Import (JSON, CSV, SQL)**
+- **Search com Levenshtein distance**
+- **Undo/Redo pattern**
+- **Plugin system (dynamic loading)**
+- **Linter custom**
+- **Logger from scratch**
+- **Memory management tracking**
 
 For a comprehensive list of features and how to use them, please refer to the [User Guide](docs/user-guide.md).
 
