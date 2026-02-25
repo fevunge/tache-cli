@@ -1,20 +1,19 @@
 # Tâche
 
-CLI Task Management System Enterprise-Grade
+**Tache - CLI Task Management System Enterprise-Grade**
 
-![Taskly Logo](./assets/logo/taskly-logo.png)
+![Tache](./assets/logo/tache.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 [![GitHub Stars](https://img.shields.io/github/stars/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/network/members)
 [![GitHub Issues](https://img.shields.io/github/issues/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/issues)
-
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/pulls)
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
+   1. [Core Features](#core-features)
 2. [Demo](#demo)
 3. [Features](#features)
 4. [Installation](#installation)
@@ -29,7 +28,60 @@ CLI Task Management System Enterprise-Grade
 
 ## Introduction
 
-### Core features
+### Core Features
+
+- **Task CRUD & Validation**
+
+
+   Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod
+   
+    — ensuring all inputs are type-safe and well-formed before hitting the database.
+
+
+- **Task Scheduling**
+
+
+   Tasks can be scheduled for future execution using cron job syntax, 
+   
+   allowing users to set recurring or one-time deadlines that trigger background jobs automatically.
+
+
+- **Real-Time Notifications**
+
+
+   An event-driven notification system using Node.js `EventEmitter` 
+   
+   that fires alerts when tasks are created, updated, completed, or overdue — without polling.
+
+
+- **Export / Import**
+
+
+   Users can export their full task list (or filtered subsets) to JSON, CSV, or raw SQL, 
+   
+   and re-import from any of those formats — useful for backups, migrations, or data sharing.
+
+
+- **Fuzzy Search with Levenshtein Distance**
+
+
+   A search engine that finds tasks even with typos or partial matches, 
+   
+   using the Levenshtein distance algorithm to rank results by similarity.
+
+
+- **Undo / Redo**
+
+
+   A command history stack that lets users undo or redo any destructive action (delete, bulk update, etc.) within the current session.
+
+
+- **Plugin System**
+
+
+   A dynamic plugin loader that allows third-party or user-defined modules to extend the CLI's functionality at runtime, without modifying the core codebase.
+
+
 
 ### Tech Stack
 
@@ -37,95 +89,85 @@ CLI Task Management System Enterprise-Grade
 - Node.js
 - PostgreSQL + Redis
 
+### 42-Inspired Differentiators
+
+- **Custom Norminette (Linter)**
+   
+   A project-specific linting ruleset that enforces code style conventions similar to 42's norminette
+   
+    — function length limits, naming rules, and forbidden patterns — implemented as a custom ESLint plugin.
+
+- **Detailed Logging (ft_printf style)**
+
+   A structured logging module inspired by 42's `ft_printf` project, 
+   
+   with log levels, timestamps, color-coded output, and optional verbose mode for debugging internals.
+
+- **Memory & Resource Tracking**
+
+   A lightweight tracker that monitors heap usage, open handles, 
+
+   and DB connection counts throughout the process lifecycle — surfaced via a `--stats` CLI flag.
+
+
 ## Demo
 
 ![Weather App Screenshot 1](images/screenshot1.png)
 ![Weather App Screenshot 2](images/screenshot2.png)
 
-You can explore a live demo of The Amazing Weather App [here](https://weatherapp.example.com).
+You can explore more with video demo of **Tache**  [here](https://youtube.com/@fevunge)
 
 ## Features
 
 The Task Management CLI comes with a wide range of features to enhance your task management Enterprise-Grade experience:
 
-- **CRUD completo com validação Zod**
-- **Task scheduling com cron jobs**
-- **Real-time notifications (EventEmitter)**
-- **Export/Import (JSON, CSV, SQL)**
-- **Search com Levenshtein distance**
-- **Undo/Redo pattern**
-- **Plugin system (dynamic loading)**
-- **Linter custom**
-- **Logger from scratch**
-- **Memory management tracking**
+- Complete **CRUD** with Zod validation
+- Task scheduling with cron jobs
+- Real-time notifications (EventEmitter)
+- Export/Import (JSON, CSV, SQL)
+- **Levenshtein** distance search
+- Undo/redo pattern
+- Plugin system (dynamic loading)
 
-For a comprehensive list of features and how to use them, please refer to the [User Guide](docs/user-guide.md).
+For a comprehensive list of features and how to use them, please refer to the [User Guide](docs/USERGUIDE.md).
+
+---
 
 ## Installation
 
-To run The Amazing Weather App locally, follow these installation steps:
+To run CLI Task Management Syste locally, follow these installation steps:
 
-1. Clone the repository:
+> [!NOTE]
+> TODO
 
-   ```bash
-   git clone https://github.com/yourusername/weather-app.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd weather-app
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the app:
-
-   ```bash
-   npm start
-   ```
-
-For more detailed installation instructions, including prerequisites and troubleshooting tips, see the [Installation Guide](docs/installation.md).
-
-## Usage
-
-The Amazing Weather App is easy to use, but to help you get started quickly, we've prepared a step-by-step guide in the [User Guide](docs/user-guide.md). It covers everything from searching for locations to customizing your weather preferences.
+---
 
 ## Contributing
 
-Contributions to The Amazing Weather App are welcome! Whether you want to report a bug, suggest new features, or contribute code improvements, please follow our [Contribution Guidelines](CONTRIBUTING.md) for a smooth collaboration process.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+> [!NOTE]
+> TODO
 
 ## Acknowledgments
 
-The Amazing Weather App wouldn't be possible without the support and contributions of the following individuals and open-source projects:
-
-- [Weather API Provider](https://weather-api-provider.example.com) - For providing reliable weather data.
-- Jane Doe - Lead developer and creator of the app.
-- John Smith - UI/UX design consultant.
-- The open-source community - For their valuable contributions to the tools and libraries used in this project.
+> [!NOTE]
+> TODO
 
 ## Advanced Usage
 
-For advanced users, The Amazing Weather App offers additional capabilities that can be leveraged to enhance your weather-related projects. Check out the [Advanced Usage Guide](docs/advanced-usage.md) for more details.
+> [!NOTE]
+> TODO
 
 ## FAQ
 
-We've compiled a list of frequently asked questions and their answers in our [FAQ section](docs/faq.md). If you have any queries or run into issues, this resource may provide the solution you're looking for.
+> [!NOTE]
+> TODO
+
 
 ## Roadmap
 
-Curious about the future of The Amazing Weather App? Check out our [Roadmap](docs/roadmap.md) to see what exciting features and improvements we have planned.
+> [!NOTE]
+> TODO
 
 ## Changelog
 
-Stay up-to-date with the latest changes and updates to The Amazing Weather App by referring to our [Changelog](docs/changelog.md).
-
-Thank you for choosing The Amazing Weather App! We hope it serves you well in keeping up with the weather, rain or shine.
+[Changelog](docs/changelog.md).
