@@ -8,4 +8,16 @@ export class OSService {
   static getOSPlatform(): string {
 	return os.platform();
   }
+
+  static isWindows(): boolean {
+	return os.platform() === "win32";
+  }
+  
+  static isMacOS(): boolean {
+	return os.platform() === "darwin";
+  }
+
+  static isLinux(): boolean {
+	return os.platform() === "linux";
+  }
 }
