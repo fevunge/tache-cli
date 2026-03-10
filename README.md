@@ -10,21 +10,6 @@
 [![GitHub Issues](https://img.shields.io/github/issues/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/pulls)
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-   1. [Core Features](#core-features)
-2. [Demo](#demo)
-3. [Features](#features)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Acknowledgments](#acknowledgments)
-9. [Advanced Usage](#advanced-usage)
-10. [FAQ](#faq)
-11. [Roadmap](#roadmap)
-12. [Changelog](#changelog)
 
 ## Introduction
 
