@@ -3,14 +3,18 @@ import fs from "fs";
 import path from "path";
 import { OSService } from "../../shared/utils/os.service";
 
+let dbPath: string;
+
 if (OSService.getOSPlatform() === "win32") {
-  const dbPath = path.join(OSService.getHomeDirectory(), "tache.sqlite");
-  if (!fs.existsSync(dbPath)) {
-	fs.copyFileSync("./src/infrastructure/database/tache.sqlite", dbPath);
-  }
+  dbPath = path.join(OSService.getHomeDirectory(), ".config", "tache.sqlite");
+} else if (OSService.getOSPlatform() === "darwin") {
+  dbPath = path.join(OSService.getHomeDirectory(), "Library", "Application Support", "tache.sqlite");
+} else {
+  dbPath = path.join(OSService.getHomeDirectory(), ".config", "tache.sqlite");
 }
+
 
 export const sequelizeClient = new Sequelize({
   dialect: "sqlite",
-  storage: "./src/infrastructure/database/tache.sqlite",
+  storage: "./src/infrastructure/",
 });
