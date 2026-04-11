@@ -2,16 +2,13 @@ import { TITLE } from "./head";
 
 export const HELP_MESSAGE = `
 ${TITLE}
-Usage: tache [options] <command>
-
-Options:
-  -h, --help     display help for command
+Usage: tache <command> <options> <arguments>
 
 Commands:
-  init           Initialize a new Tache project
   add            Add a new task to the Tache project
   list           List all tasks in the Tache project
-  complete       Mark a task as completed
-  delete         Delete a task from the Tache project
-  help [command] display help for command
+  read           Read the details of a specific task in the Tache project
+  done           Mark a specific task as done in the Tache project
+  help           Display this help message
+      -> [command_name] display help for command
 `;
