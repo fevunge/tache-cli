@@ -8,8 +8,8 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+![Coverage](https://img.shields.io/badge/coverage-00%25-brightgreen?style=for-the-badge)  
 [![Issues](https://img.shields.io/github/issues/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/issues)
-![Coverage](https://img.shields.io/badge/coverage-00%25-brightgreen?style=for-the-badge)
 [![Stars](https://img.shields.io/github/stars/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/stargazers)
 
 <br/>
