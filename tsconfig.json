@@ -18,8 +18,10 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
+//    "ignoreDeprecations": "6.0",
+    "baseUrl": "./",
     "paths": {
-      "@prisma/client": ["./generated/prisma"]
+      "@src/*": ["src/*"]
     }
   }
 }
