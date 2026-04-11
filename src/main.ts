@@ -1,4 +1,4 @@
-export function greet(name: string): string {
-	return `Hello, ${name}!`;
-}
+import { cli } from "@src/presentation/cli/index";
+
+cli();
 
