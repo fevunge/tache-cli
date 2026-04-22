@@ -1,0 +1,13 @@
+node_modules/
+docs/
+.github/
+bin/
+coverage/
+docs/
+tests/
+.vscode/
+.idea/
+database.dbml
+Jenkinsfile
+jest.config.js
+openapi.json
