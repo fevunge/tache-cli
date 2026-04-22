@@ -1,4 +1,4 @@
-
+ 
 Table users {
 	id integer [pk, increment]
 	name varchar [not null]
