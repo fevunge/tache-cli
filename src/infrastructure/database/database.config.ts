@@ -13,8 +13,7 @@ if (OSService.getOSPlatform() === "win32") {
   dbPath = path.join(OSService.getHomeDirectory(), ".config", "tache.sqlite");
 }
 
-
 export const sequelizeClient = new Sequelize({
   dialect: "sqlite",
-  storage: "./src/infrastructure/",
+  storage: dbPath,
 });
