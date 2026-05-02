@@ -2,6 +2,7 @@ FROM node:24.13.1-alpine
 
 WORKDIR /app
 COPY package*.json ./
-RUN pnpm install
+RUN npm install -g pnpm@10.33.0 && pnpm install
 COPY . .
-RUN pnpm build && pnpm prune --production && pnpm cache clean --force && rm -rf node_modules
+RUN chmod +x ./tache
+RUN pnpm compile && pnpm prune --production && rm -rf node_modules && mv ./tache /usr/local/bin/tache
