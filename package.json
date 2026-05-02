@@ -12,6 +12,8 @@
   "scripts": {
     "start": "node dist/main.js",
     "dev": "pnpx tsx src/main.ts",
+    "install:bin": "mv bin/tache /usr/local/bin/tache",
+    "compile": "esbuild src/main.ts --bundle --platform=node --outfile=dist/main.js",
     "build": "esbuild src/main.ts --bundle --platform=node --outfile=dist/main.js && pnpx pkg dist/main.js -t node18-linux-x64 -o bin/tache",
     "test": "jest"
   },
