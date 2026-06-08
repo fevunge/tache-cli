@@ -7,7 +7,6 @@
 
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Coverage](https://img.shields.io/badge/coverage-00%25-brightgreen?style=for-the-badge)  
 [![Issues](https://img.shields.io/github/issues/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/issues)
 [![Stars](https://img.shields.io/github/stars/fevunge/task-management-cli)](https://github.com/fevunge/task-management-cli/stargazers)
@@ -19,8 +18,9 @@
 
 # tache-cli
 
-### *lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do*
-*lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.*
+### *An enterprise-grade command-line task management system—for developers and other CLI's users.* 
+The system manages tasks with priorities, due dates, tags, and interdependencies, using SQLite persistence via Drizzle ORM  
+and integrates with Ollama for intelligent prioritization suggestions based on the user’s historical patterns.
 
 <br/>
 
@@ -55,7 +55,9 @@
 
 ## Overview
 
-**_tache-cli_** is a [type of project] that allows [target users] to [core value proposition]. Unlike [existing alternatives], it [key differentiator]. It was built to [motivation or origin story].
+Tache CLI is a lightweight yet enterprise-ready task management system designed for developers and technical professionals who prefer working directly from the command line. It enables fast and organized task management through a terminal-first experience, with support for priorities, deadlines, reminders, alarms, and intelligent notifications.
+
+Unlike traditional to-do list applications that focus mainly on graphical interfaces, Tache CLI is deeply integrated with Large Language Models (LLMs), transforming task management into an intelligent workflow assistant.
 
 ---
 
@@ -66,7 +68,7 @@
     — ensuring all inputs are type-safe and well-formed before hitting the database.
   
 - **Task Scheduling**  
-   Tasks can be scheduled for future execution using cron job syntax,   
+   Tasks can be scheduled for future execution using cron job syntax or the **`taimplex`** syntax,
    allowing users to set recurring or one-time deadlines that trigger background jobs automatically.
 
 - **Real-Time Notifications**  
@@ -109,6 +111,7 @@
 | Layer | Technology |
 |---|---|
 | **Core Language** | TypeScript |
+| **Frontend** | Commander.js |
 | **Backend** | Node.js |
 | **Database** | PostgreSQL, Sequelize |
 | **Cache** | Redis |
@@ -364,4 +367,3 @@ Made with 🧠 by [fevunge](https://github.com/fevunge)
 ## License
 
 Distributed under the **MIT License**.
-
