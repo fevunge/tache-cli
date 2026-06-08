@@ -112,8 +112,7 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 | **Core Language** | TypeScript |
 | **Frontend** | Commander.js |
 | **Backend** | Node.js |
-| **Database** | PostgreSQL, Sequelize |
-| **Cache** | Redis |
+| **Database** | SQLite, Sequelize |
 | **DevOps** | Docker, Jenkins |
 | **Testing** | Jest |
 | **Log** | [Vlogging](https://github.com/fevunge/vlogging) |
