@@ -3,6 +3,6 @@ coverage
 dist
 bin
 database.dbdiagram
-AGENT.md
+AGENTS.md
 .env
 .github
