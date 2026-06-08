@@ -126,7 +126,7 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 
 ```bash
 node >= 18.0.0
-npm >= 9.0.0
+pnpm >= 9.0.0
 docker >= 24.0.0  # optional
 ```
 
@@ -135,16 +135,15 @@ docker >= 24.0.0  # optional
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/fevunge/project-name.git
-cd project-name
+git clone https://github.com/fevunge/tache-cli.git
+cd tache-cli
 ```
 
 **2. Install dependencies**
 
 ```bash
-npm install
-# or
-yarn install
+pnpm install
+
 ```
 
 **3. Set up environment variables**
@@ -156,14 +155,14 @@ cp .env.example .env
 **4. Run database migrations**
 
 ```bash
-npm run db:migrate
-npm run db:seed  # optional: seed with sample data
+pnpm run db:migrate
+pnpm run db:seed  # optional: seed with sample data
 ```
 
 **5. Start the development server**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 The app will be running at **[http://localhost:3000](http://localhost:3000)**
