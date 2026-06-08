@@ -3,6 +3,8 @@
   "instructions": [
     "CONTRIBUTING.md",
     "docs/adr/*.md",
-    "agent/prompt/refactor-agent.txt"
+    "docs/architecture-decision-records.md",
+    "AGENTS.md",
+    "README.md"
   ]
 }
