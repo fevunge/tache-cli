@@ -57,6 +57,8 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 Tache CLI is a lightweight yet enterprise-ready task management system designed for developers and technical professionals who prefer working directly from the command line. It enables fast and organized task management through a terminal-first experience, with support for priorities, deadlines, reminders, alarms, and intelligent notifications.
 
+Provides an interactive shell interface that combines Tache-CLI functionality with standard shell commands, enabling a unified command-line experience.
+
 Unlike traditional to-do list applications that focus mainly on graphical interfaces, Tache CLI is deeply integrated with Large Language Models (LLMs), transforming task management into an intelligent workflow assistant.
 
 ---
@@ -68,7 +70,7 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
     — ensuring all inputs are type-safe and well-formed before hitting the database.
   
 - **Task Scheduling**  
-   Tasks can be scheduled for future execution using cron job syntax or the **`taimplex`** syntax,
+   Tasks can be scheduled for future execution using cron job syntax or the [**`taimplex`**](https://fevunge.github.io/blog/taimplex) syntax,
    allowing users to set recurring or one-time deadlines that trigger background jobs automatically.
 
 - **Real-Time Notifications**  
@@ -86,15 +88,11 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 - **Undo / Redo**  
    A command history stack that lets users undo or redo any destructive action (delete, bulk update, etc.) within the current session.
 
-- **Plugin System**  
-   A dynamic plugin loader that allows third-party or user-defined modules to extend the CLI's functionality at runtime,  
-	without modifying the core codebase.
+- **Custom Norminette [Lentte](https://github.com/fevunge/lentte)**  
+   A project-specific linting ruleset that enforces text style conventions similar to 42's norminette
+    — length limits, naming rules, and forbidden patterns — with clear error messages and auto-fix suggestions.
 
-- **Custom Norminette (Linter)**  
-   A project-specific linting ruleset that enforces code style conventions similar to 42's norminette  
-    — function length limits, naming rules, and forbidden patterns — implemented as a custom ESLint plugin.
-
-- **Detailed Logging (ft_printf style)**  
+- **Detailed Logging [Vlogging](https://github.com/fevunge/vlogging)**  
    A structured logging module - **`vlogging`** - inspired by 42's `ft_printf` project,   
    with log levels, timestamps, color-coded output, and optional verbose mode for debugging internals.
 
@@ -102,8 +100,9 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
    A lightweight tracker that monitors heap usage, open handles,  
    and DB connection counts throughout the process lifecycle  
     — surfaced via a `--stats` CLI flag.
-
-
+- **Interactive Shell Mode**
+   An interactive REPL mode that combines Tache CLI commands with standard shell commands,  
+   allowing users to manage tasks and execute system commands in a single terminal session.
 ---
 
 ## Tech Stack
@@ -117,8 +116,8 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 | **Cache** | Redis |
 | **DevOps** | Docker, Jenkins |
 | **Testing** | Jest |
-| **Log** | Vlogging |
-| **Linter** | Lentte |
+| **Log** | [Vlogging](https://github.com/fevunge/vlogging) |
+| **Linter** | [Lentte](https://github.com/fevunge/lentte) |
 
 ---
 
