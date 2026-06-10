@@ -1,19 +1,6 @@
-import { Sequelize } from "sequelize";
-import fs from "fs";
-import path from "path";
-import { OSService } from "../../shared/utils/os.service";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import Database from "better-sqlite3";
 
-let dbPath: string;
 
-if (OSService.getOSPlatform() === "win32") {
-  dbPath = path.join(OSService.getHomeDirectory(), ".config", "tache.sqlite");
-} else if (OSService.getOSPlatform() === "darwin") {
-  dbPath = path.join(OSService.getHomeDirectory(), "Library", "Application Support", "tache.sqlite");
-} else {
-  dbPath = path.join(OSService.getHomeDirectory(), ".config", "tache.sqlite");
-}
-
-export const sequelizeClient = new Sequelize({
-  dialect: "sqlite",
-  storage: dbPath,
-});
+const sqliteDb = new Database(process.env.DB_FILE_NAME || "default.db");
+export const db =  drizzle({ client: sqliteDb });
