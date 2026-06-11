@@ -25,5 +25,6 @@ export class DatabaseService {
 			password TEXT NOT NULL,
 			created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 		)`);
+		console.log("Database initialized");
 	}
 }
