@@ -32,7 +32,7 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -42,10 +42,8 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
   - [Installation](#installation)
   - [Environment](#environment)
 - [Usage](#-usage)
-- [Project Structure](#-project-structure)
 - [API Reference](#-api-reference)
 - [Screenshots](#-screenshots)
-- [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [Authors](#-authors)
 - [Acknowledgements](#-acknowledgements)
@@ -55,11 +53,10 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 ## Overview
 
-Tache CLI is a lightweight yet enterprise-ready task management system designed for developers and technical professionals who prefer working directly from the command line. It enables fast and organized task management through a terminal-first experience, with support for priorities, deadlines, reminders, alarms, and intelligent notifications.
+Tache CLI is a lightweight task, project, and calendar management system built for real-world use, designed for programmers and IT and technology professionals in general who prefer to work directly from the command line. It enables fast and organized task and project management through a terminal-centric experience, with support for priorities, deadlines, reminders, alarms, and smart notifications.
 
-Provides an interactive shell interface that combines Tache-CLI functionality with standard shell commands, enabling a unified command-line experience.
+Tache CLI can be integrated with Large Language Models (LLMs), transforming task and project management into an intelligent workflow assistant.
 
-Unlike traditional to-do list applications that focus mainly on graphical interfaces, Tache CLI is deeply integrated with Large Language Models (LLMs), transforming task management into an intelligent workflow assistant.
 
 ---
 
@@ -68,6 +65,10 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 - **Task CRUD & Validation**  
    Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod  
     — ensuring all inputs are type-safe and well-formed before hitting the database.
+
+- **Project & Subtask Management**  
+   Support for hierarchical task structures, allowing users to create projects with nested subtasks,  
+   and manage dependencies between them (e.g., a subtask cannot be marked complete until its parent task is done).
   
 - **Task Scheduling**  
    Tasks can be scheduled for future execution using cron job syntax or the [**`taimplex`**](https://fevunge.github.io/blog/taimplex) syntax,
@@ -82,7 +83,7 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
    and re-import from any of those formats — useful for backups, migrations, or data sharing.
 
 - **Fuzzy Search with Levenshtein Distance**  
-   A search engine that finds tasks even with typos or partial matches,  
+   A search engine that finds resources even with typos or partial matches,  
    using the Levenshtein distance algorithm to rank results by similarity.
 
 - **Undo / Redo**  
@@ -98,11 +99,9 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 
 - **Memory & Resource Tracking**  
    A lightweight tracker that monitors heap usage, open handles,  
-   and DB connection counts throughout the process lifecycle  
+   and DB connection counts throughout the process lifecycle
     — surfaced via a `--stats` CLI flag.
-- **Interactive Shell Mode**
-   An interactive REPL mode that combines Tache CLI commands with standard shell commands,  
-   allowing users to manage tasks and execute system commands in a single terminal session.
+
 ---
 
 ## Tech Stack
@@ -110,11 +109,11 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 | Layer | Technology |
 |---|---|
 | **Core Language** | TypeScript |
-| **Frontend** | Commander.js |
-| **Backend** | Node.js |
-| **Database** | SQLite, Sequelize |
+| **Frontend** | Commander.js, Klaur |
+| **Compiler** | Bun |
+| **Database** | SQLite, DrizzleORM |
 | **DevOps** | Docker, Jenkins |
-| **Testing** | Jest |
+| **Testing** | Vitest |
 | **Log** | [Vlogging](https://github.com/fevunge/vlogging) |
 | **Linter** | [Lentte](https://github.com/fevunge/lentte) |
 
@@ -124,10 +123,12 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 
 ### Prerequisites
 
+For local development, test, and contribution purposes, you will need to have the following software installed on your machine.
+
 ```bash
-node >= 18.0.0
-pnpm >= 9.0.0
-docker >= 24.0.0  # optional
+bun = 1.3.14
+pnpm >= 10.33.0
+docker >= 29.3.0  # optional
 ```
 
 ### Installation
@@ -142,7 +143,7 @@ cd tache-cli
 **2. Install dependencies**
 
 ```bash
-pnpm install
+make install # or
 
 ```
 
@@ -165,8 +166,6 @@ pnpm run db:seed  # optional: seed with sample data
 pnpm run dev
 ```
 
-The app will be running at **[http://localhost:3000](http://localhost:3000)**
-
 ---
 
 ### Environment
@@ -175,11 +174,8 @@ Create a `.env` file in the root directory. See `.env.example` for reference.
 
 | Variable | Description | Required |
 |---|---|---|
-| `DATABASE_URL` | PostgreSQL connection string | ✅ |
-| `JWT_SECRET` | Secret key for JWT signing | ✅ |
-| `NEXT_PUBLIC_API_URL` | Base URL for API calls | ✅ |
-| `SMTP_HOST` | Email server host | ⬜ |
-| `STRIPE_SECRET_KEY` | Stripe payment secret | ⬜ |
+| `RESOURCE_PATH` | Path to resource files | [x] |
+| `LLM_API_KEY` | API key for LLM integration | [ ] |
 
 ---
 
@@ -187,83 +183,25 @@ Create a `.env` file in the root directory. See `.env.example` for reference.
 
 ### Basic Example
 
-```typescript
-import { ProjectClient } from 'project-name';
-
-const client = new ProjectClient({
-  apiKey: process.env.API_KEY,
-  region: 'us-east-1',
-});
-
-const result = await client.doSomething({
-  input: 'your-data',
-  options: { verbose: true },
-});
-
-console.log(result);
+```shell
+# Create a new task
+$ tache create "Finish project report" --priority high --due "2024-07-01"
 ```
 
 ### Advanced Example
 
-```typescript
-// Advanced use case with error handling
-try {
-  const response = await client.advancedFeature({
-    param1: 'value',
-    param2: 42,
-  });
+```shell
+# Create a project with subtasks and dependencies
+$ tache create "Launch Marketing Campaign" --type project
 
-  if (response.success) {
-    // handle success
-  }
-} catch (error) {
-  console.error('Something went wrong:', error.message);
-}
+$ tache create "Design Ad Creatives" --parent "Launch Marketing Campaign" --due "2024-06-15"
+
+$ tache create "Set Up Email List" --parent "Launch Marketing Campaign" --due "2024-06-20"
+
+$ tache create "Schedule Social Media Posts" --parent "Launch Marketing Campaign" --due "2024-06-25"
 ```
 
 > 💡 **Tip:** Check the [`/examples`](./examples) directory for more comprehensive usage patterns.
-
----
-
-## Project Structure
-
-```
-tache-cli
-├── assets
-│   ├── logo
-│   │   └── tache.png
-│   └── screenshot
-├── dev
-│   └── db-desing.md
-├── docs
-│   ├── api.md
-│   ├── CHANGELOG.md
-│   ├── CONTRIBUTING.md
-│   ├── USAGE.md
-│   └── USERGUIDE.md
-├── resource
-├── src
-│   ├── application
-│   ├── domain
-│   ├── infrastructure
-│   │   ├── config
-│   │   └── database
-│   │       ├── config
-│   │       │   ├── external.db.config.ts
-│   │       │   └── local.db.config.ts
-│   │       └── client.database.ts
-│   ├── presentation
-│   └── shared
-│       ├── const
-│       └── utils
-│           └── os.service.ts
-├── test
-├── .gitignore
-├── Jenkinsfile
-├── package.json
-├── pnpm-lock.yaml
-└── README.md
-```
 
 ---
 
@@ -287,21 +225,6 @@ Full API reference available at [`/docs/api.md`](./docs/api.md)
 | ![Dashboard](https://placehold.co/380x220/1a1a2e/ffffff?text=Dashboard) | ![Detail](https://placehold.co/380x220/16213e/ffffff?text=Detail+View) | ![Mobile](https://placehold.co/180x320/0f3460/ffffff?text=Mobile) |
 
 </div>
-
----
-
-## Roadmap
-
-- [x] Core feature implementation
-- [x] REST API
-- [x] Authentication & authorization
-- [ ] Real-time notifications via WebSockets
-- [ ] Mobile application (React Native)
-- [ ] AI-powered suggestions engine
-- [ ] Multi-tenancy support
-- [ ] Internationalization (i18n)
-
-See [open issues](https://github.com/fevunge/repo-name/issues) for a full list of proposed features and known bugs.
 
 ---
 
@@ -348,7 +271,7 @@ chore(scope):    Maintenance tasks
 
 Made with 🧠 by [fevunge](https://github.com/fevunge)
 
-⭐ **Star this repo** if you found it helpful!
+⭐ **Star this repo** if you found it useful or interesting!
 
 </div>
 
