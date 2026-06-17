@@ -1,11 +1,28 @@
-import { ASCII_HEAD } from "@src/shared/const/head";
-import { HELP_MESSAGE } from "@src/shared/const/help";
-import { tokenaizer_args } from "@src/presentation/parser";
-import { EventEmitter } from "events";
+import { Command } from "commander";
+import { taskCommand } from "../command/task.command";
 
-export const cli = (eventEmitter: EventEmitter) => {
-	console.log(ASCII_HEAD);
-  const args = process.argv.slice(2);
-  console.log(tokenaizer_args(args));
-  eventEmitter.emit("start");
+export const command_line_interface = (commandLine: Command) => {
+	commandLine.addCommand(taskCommand());
+	commandLine
+	  .command("project")
+	  .description("List all tasks")
+	  .action(() => {
+		console.log("Listing all tasks...");
+	  });
+
+	commandLine
+	  .command("me")
+	  .description("Read a task by ID")
+	  .action((id: string) => {
+		console.log(`Reading task ${id}...`);
+	  });
+
+	commandLine
+	  .command("schedule")
+	  .description("Mark a task as complete")
+	  .action((id: string) => {
+		console.log(`Marking task ${id} as complete...`);
+	  });
+
+	commandLine.parse();
 }

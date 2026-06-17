@@ -6,6 +6,15 @@ Table users {
 	git_username varchar [not null, unique]
 	git_email varchar [not null, unique]
 	email varchar [not null, unique]
+	avatar_url varchar
+	role varchar [not null, default: 'developer']
+	locale varchar [not null, default: 'en']
+	timezone varchar [not null, default: 'UTC']
+	preferred_language varchar [not null, default: 'en']
+	preferred_theme varchar [not null, default: 'light']
+	preferred_code_editor varchar [not null, default: 'vscode']
+	preferred_color_scheme varchar [not null, default: 'default']
+	deleted_at timestamp
 	created_at timestamp [not null, default: `now()`]
 	updated_at timestamp [not null, default: `now()`]
 }

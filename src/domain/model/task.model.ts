@@ -3,21 +3,17 @@ export class TaskModel {
 	private title: string;
 	private description: string[];
 	constructor(id: string, title: string, description: string[]) {
-		
 		this.id = id;
 		this.title = title;
 		this.description = description;
 	}
 
-	
 	public getId() : string {
 		return this.id;
 	}
-
 	public getTitle() : string {
 		return this.title;
 	}
-
 	public getDescription() : string[] {
 		return this.description;
 	}
@@ -34,6 +30,5 @@ export class TaskModel {
 
 	public setDescription(description: string[]) : void {
 		this.description = description;
-	}
-	
+	}	
 }
