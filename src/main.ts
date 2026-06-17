@@ -5,13 +5,10 @@ import { cli } from "@src/presentation/cli/commandline";
 
 
 async function main() {
-
   const localApplicationService: LocalApplicationService = new LocalApplicationService();
   const commander: Command = cli;
-
   localApplicationService.createLocalApplicationFolder();
   command_line_interface(commander);
-
 }
 (async () => {
   await main().catch((error) => {
