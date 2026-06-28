@@ -1,7 +1,7 @@
-[submodule "src/shared/lib/lantte"]
-	path = src/shared/lib/lantte
-	url = git@github.com:zfleet-fms/tache-lantte
+[submodule "src/shared/lib/lentte"]
+	path = src/shared/lib/lentte
+	url = git@github.com:fevunge/tache-lentte
 
 [submodule "src/shared/lib/vlogging"]
 	path = src/shared/lib/vlogging
-	url = git@github.com:zfleet-fms/tache-vlogging
+	url = git@github.com:fevunge/tache-vlogging
