@@ -53,17 +53,18 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 ## Overview
 
-Tache CLI is a lightweight task, project, and calendar management system built for real-world use, designed for programmers and IT and technology professionals in general who prefer to work directly from the command line. It enables fast and organized task and project management through a terminal-centric experience, with support for priorities, deadlines, reminders, alarms, and smart notifications.
+Tache CLI is a lightweight task, project, and calendar management system built for real-world use, designed for programmers and IT and technology professionals in general who prefer to work directly from the command line.  
+It enables fast and organized task and project management through a terminal-centric experience, 
+with support for priorities, deadlines, reminders, alarms, and smart notifications.
 
 Tache CLI can be integrated with Large Language Models (LLMs), transforming task and project management into an intelligent workflow assistant.
-
 
 ---
 
 ## Features
 
 - **Task CRUD & Validation**  
-   Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod  
+  Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod  
     — ensuring all inputs are type-safe and well-formed before hitting the database.
 
 - **Project & Subtask Management**  
