@@ -5,7 +5,8 @@ export class ProjectModel {
 	private id: string;
 	private name: string;
 	private description: string;
-	private path_or_url: string;
+	private local_path: string;
+	private remote_path: string;
 	private has_version_control: boolean = false;
 	private version_control_type: VersionControlType = "none";
 	private contributors: ContributorModel[] = [];
@@ -15,7 +16,8 @@ export class ProjectModel {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.path_or_url = path_or_url;
+		this.local_path = path_or_url;
+		this.remote_path = path_or_url
 		this.has_version_control = has_version_control;
 		this.version_control_type = version_control_type;
 	}
