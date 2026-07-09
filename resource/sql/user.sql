@@ -4,3 +4,4 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
