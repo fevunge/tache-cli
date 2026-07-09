@@ -90,11 +90,11 @@ Tache CLI can be integrated with Large Language Models (LLMs), transforming task
 - **Undo / Redo**  
    A command history stack that lets users undo or redo any destructive action (delete, bulk update, etc.) within the current session.
 
-- **Custom Norminette [Lentte](https://github.com/fevunge/lentte)**  
+- **Custom Norminette [Lentte](https://gitlab.com/tachecli_g/lentte)**  
    A project-specific linting ruleset that enforces text style conventions similar to 42's norminette
     — length limits, naming rules, and forbidden patterns — with clear error messages and auto-fix suggestions.
 
-- **Detailed Logging [Vlogging](https://github.com/fevunge/vlogging)**  
+- **Detailed Logging [Vlogging](https://gitlab.com/tachecli_g/vlogging)**  
    A structured logging module - **`vlogging`** - inspired by 42's `ft_printf` project,   
    with log levels, timestamps, color-coded output, and optional verbose mode for debugging internals.
 
@@ -115,8 +115,8 @@ Tache CLI can be integrated with Large Language Models (LLMs), transforming task
 | **Database** | SQLite, DrizzleORM |
 | **DevOps** | Docker, Jenkins |
 | **Testing** | Vitest |
-| **Log** | [Vlogging](https://github.com/fevunge/vlogging) |
-| **Linter** | [Lentte](https://github.com/fevunge/lentte) |
+| **Log** | [Vlogging](https://gitlab.com/tachecli_g/vlogging) |
+| **Linter** | [Lentte](https://gitlab.com/tachecli_g/lentte) |
 
 ---
 
