@@ -1,7 +1,7 @@
 [submodule "src/shared/lib/lentte"]
 	path = src/shared/lib/lentte
-	url = git@github.com:fevunge/tache-lentte
+	url = git@gitlab.com:tachecli_g/lentte.git
 
 [submodule "src/shared/lib/vlogging"]
 	path = src/shared/lib/vlogging
-	url = git@github.com:fevunge/tache-vlogging
+	url = git@gitlab.com:tachecli_g/vlogging.git
