@@ -1,1 +1,5 @@
-export type PriorityType = 1 | 2 | 3 | 4 | 5;
+import { z } from "zod/v4";
+
+export const PrioritySchema = z.enum(["LOW", "NORMAL", "HIGH", "CRITICAL"]).default("NORMAL").optional();
+
+export type PriorityType = z.infer<typeof PrioritySchema>;
