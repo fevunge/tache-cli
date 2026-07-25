@@ -1,10 +1,12 @@
 import { PriorityType } from "@src/domain/types/priority.type";
 import { TaskTagType } from "@src/domain/types/task_tag.type";
+import { randomUUID } from "crypto";
 
 export class TaskModel {
 	private id: string;
-	private title: string;
-	private description: string[];
+  private title: string;
+  private done: boolean;
+	private note: string;
 	private created_at: Date;
 	private updated_at: Date | null;
 	private priotity: PriorityType;
@@ -25,13 +27,21 @@ export class TaskModel {
 	public addChildreans(value: TaskModel) {
 		this.childreans.push(value);
 	}
-	
+
+	public geDone(): boolean {
+		return this.done;
+	}
+  public setDone(value: boolean) {
+    if (value)
+      this.done = value;
+	}
 	
 	public gePriotity(): PriorityType {
 		return this.priotity;
 	}
-	public setPriotity(value: PriorityType) {
-		this.priotity = value;
+  public setPriotity(value: PriorityType) {
+    if (value)
+      this.priotity = value;
 	}
 
 	public getParent(): TaskModel | null {
@@ -41,22 +51,36 @@ export class TaskModel {
 		this.parent = value;
 	}
 	
-	constructor(title: string, ) {
-		this.id = "generate_id";
-		this.title = title;
-		this.priotity = 3;
-		this.description = [];
+	constructor() {
+		this.id = randomUUID();
+    this.title = undefined;
+    this.done = false;
+		this.priotity = "NORMAL";
+		this.note = "";
 		this.tags = [];
 		this.childreans = [];
 		this.created_at = new Date(Date.now());
 		this.updated_at = null;
 		this.parent = null;
-	}
+  }
+
+  public toString() {
+  console.log(this.id)
+  console.log(this.title);
+  console.log(this.done);
+	console.log(this.priotity);
+	console.log(this.note);
+	console.log(this.tags);
+	console.log(this.childreans);
+	console.log(this.created_at);
+	console.log(this.updated_at);
+	console.log(this.parent); 
+  }
 
 	public getCreated_at(): Date {
 		return this.created_at;
 	}
-	public setCreated_at(value: Date) {
+  public setCreated_at(value: Date) {
 		this.created_at = value;
 	}
 
@@ -83,12 +107,17 @@ export class TaskModel {
 		this.title = title;
 	}
 
-	public getDescription(): string[] {
-		return this.description;
+	public getNote(): string {
+		return this.note;
 	}
-	public addDescription(value: string) {
-		this.description.push(value);
+  public addNote(value: string) {
+    if (this.note.length < 1)
+      this.note += `${value}`
+    else 
+      this.note += `\n ${value}`
 	}
 
-
+  public setNote(value: string | undefined) {
+    this.note = value || this.note;
+	}
 }
