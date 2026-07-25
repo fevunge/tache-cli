@@ -1,6 +1,6 @@
 {
   "name": "tache-cli",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "A CLI tool for managing tasks and projects with a focus on simplicity and efficiency.",
   "author": "fevunge",
   "main": "src/main.ts",
