@@ -144,27 +144,44 @@ cd tache-cli
 **2. Install dependencies**
 
 ```bash
-make install # or
+make setup
+```
 
+**2.1. Compile JS code**
+```bash
+make compile
+```
+
+**2.2. Build executable**
+```bash
+make 
 ```
 
 **3. Set up environment variables**
 
 ```bash
-cp .env.example .env
+make env
 ```
 
-**4. Run database migrations**
+**5. Run at development env**
 
 ```bash
-pnpm run db:migrate
-pnpm run db:seed  # optional: seed with sample data
+bun dev --help      # to run TypeScript code
+bun start --help    # to run compiled JavaScript code
 ```
 
-**5. Start the development server**
-
+**6. Run compiled project**
 ```bash
-pnpm run dev
+chmod u+x ./bin/tache
+
+./bin/tache --help 
+``` 
+
+**7. Install at your local machine**
+```bash
+make install
+
+tache --help
 ```
 
 ---
@@ -176,7 +193,7 @@ Create a `.env` file in the root directory. See `.env.example` for reference.
 | Variable | Description | Required |
 |---|---|---|
 | `RESOURCE_PATH` | Path to resource files | [x] |
-| `LLM_API_KEY` | API key for LLM integration | [ ] |
+| `LLM_API_KEY` | API key for LLM integration | [x] |
 
 ---
 
