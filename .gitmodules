@@ -1,7 +1,6 @@
-[submodule "lib/lentte"]
-	path = slib/lentte
-	url = git@gitlab.com:tachecli_g/lentte.git
-
 [submodule "lib/vlogging"]
 	path = lib/vlogging
 	url = git@gitlab.com:tachecli_g/vlogging.git
+[submodule "lib/lentte"]
+	path = lib/lentte
+	url = git@gitlab.com:tachecli_g/lentte.git
