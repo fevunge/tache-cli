@@ -1,7 +1,7 @@
-[submodule "src/shared/lib/lentte"]
-	path = src/shared/lib/lentte
+[submodule "lib/lentte"]
+	path = slib/lentte
 	url = git@gitlab.com:tachecli_g/lentte.git
 
-[submodule "src/shared/lib/vlogging"]
-	path = src/shared/lib/vlogging
+[submodule "lib/vlogging"]
+	path = lib/vlogging
 	url = git@gitlab.com:tachecli_g/vlogging.git
