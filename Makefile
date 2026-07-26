@@ -2,7 +2,7 @@ MODULES=node_modules/
 SRC=src/main.ts
 BIN=bin/tache
 
-all: build
+all: $(MODULES) build
 
 build:
 	@bun build $(SRC) --compile --outfile=$(BIN) && echo -e "$(BIN) \tcompiled"
@@ -24,5 +24,8 @@ fclean: clean
 
 re: fclean build
 
-$(MODULES):
-	@pnpm install
+$(MODULES): lib
+	@bun install
+
+lib:
+	@git submodule update --init
