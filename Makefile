@@ -29,3 +29,5 @@ $(MODULES): lib
 
 lib:
 	@git submodule update --init
+
+.PHONY: all build setup compile install clean fclean lib re
