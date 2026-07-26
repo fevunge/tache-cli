@@ -1,10 +1,12 @@
-import { cli } from "@src/presentation/cli/index";
-import { EventEmitter } from "events";
+import { Command } from "commander";
+import { hello } from "@vlogging";
+import { command_line_interface } from "./presentation/cli";
+import { cli } from "@src/presentation/cli/commandline";
+ 
 
-const eventEmitter = new EventEmitter();
+const commander: Command = cli;
+hello();
+command_line_interface(commander);
 
-eventEmitter.on("start", () => {
-  console.log("Application started");
-})
 
-cli(eventEmitter);
+

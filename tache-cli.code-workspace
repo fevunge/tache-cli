@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "lib/vlogging"
+		},
+		{
+			"path": "lib/lentte"
+		}
+	],
+	"settings": {}
+}

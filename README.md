@@ -32,7 +32,7 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -42,10 +42,8 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
   - [Installation](#installation)
   - [Environment](#environment)
 - [Usage](#-usage)
-- [Project Structure](#-project-structure)
 - [API Reference](#-api-reference)
 - [Screenshots](#-screenshots)
-- [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [Authors](#-authors)
 - [Acknowledgements](#-acknowledgements)
@@ -55,20 +53,26 @@ and integrates with Ollama for intelligent prioritization suggestions based on t
 
 ## Overview
 
-Tache CLI is a lightweight yet enterprise-ready task management system designed for developers and technical professionals who prefer working directly from the command line. It enables fast and organized task management through a terminal-first experience, with support for priorities, deadlines, reminders, alarms, and intelligent notifications.
+Tache CLI is a lightweight task, project, and calendar management system built for real-world use, designed for programmers and IT and technology professionals in general who prefer to work directly from the command line.  
+It enables fast and organized task and project management through a terminal-centric experience, 
+with support for priorities, deadlines, reminders, alarms, and smart notifications.
 
-Unlike traditional to-do list applications that focus mainly on graphical interfaces, Tache CLI is deeply integrated with Large Language Models (LLMs), transforming task management into an intelligent workflow assistant.
+Tache CLI can be integrated with Large Language Models (LLMs), transforming task and project management into an intelligent workflow assistant.
 
 ---
 
 ## Features
 
 - **Task CRUD & Validation**  
-   Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod  
+  Full create, read, update, and delete operations for tasks, with strict schema validation powered by Zod  
     — ensuring all inputs are type-safe and well-formed before hitting the database.
+
+- **Project & Subtask Management**  
+   Support for hierarchical task structures, allowing users to create projects with nested subtasks,  
+   and manage dependencies between them (e.g., a subtask cannot be marked complete until its parent task is done).
   
 - **Task Scheduling**  
-   Tasks can be scheduled for future execution using cron job syntax or the **`taimplex`** syntax,
+   Tasks can be scheduled for future execution using cron job syntax or the [**`taimplex`**](https://fevunge.github.io/blog/taimplex) syntax,
    allowing users to set recurring or one-time deadlines that trigger background jobs automatically.
 
 - **Real-Time Notifications**  
@@ -80,29 +84,24 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
    and re-import from any of those formats — useful for backups, migrations, or data sharing.
 
 - **Fuzzy Search with Levenshtein Distance**  
-   A search engine that finds tasks even with typos or partial matches,  
+   A search engine that finds resources even with typos or partial matches,  
    using the Levenshtein distance algorithm to rank results by similarity.
 
 - **Undo / Redo**  
    A command history stack that lets users undo or redo any destructive action (delete, bulk update, etc.) within the current session.
 
-- **Plugin System**  
-   A dynamic plugin loader that allows third-party or user-defined modules to extend the CLI's functionality at runtime,  
-	without modifying the core codebase.
+- **Custom Norminette [Lentte](https://gitlab.com/tachecli_g/lentte)**  
+   A project-specific linting ruleset that enforces text style conventions similar to 42's norminette
+    — length limits, naming rules, and forbidden patterns — with clear error messages and auto-fix suggestions.
 
-- **Custom Norminette (Linter)**  
-   A project-specific linting ruleset that enforces code style conventions similar to 42's norminette  
-    — function length limits, naming rules, and forbidden patterns — implemented as a custom ESLint plugin.
-
-- **Detailed Logging (ft_printf style)**  
+- **Detailed Logging [Vlogging](https://gitlab.com/tachecli_g/vlogging)**  
    A structured logging module - **`vlogging`** - inspired by 42's `ft_printf` project,   
    with log levels, timestamps, color-coded output, and optional verbose mode for debugging internals.
 
 - **Memory & Resource Tracking**  
    A lightweight tracker that monitors heap usage, open handles,  
-   and DB connection counts throughout the process lifecycle  
+   and DB connection counts throughout the process lifecycle
     — surfaced via a `--stats` CLI flag.
-
 
 ---
 
@@ -111,14 +110,13 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 | Layer | Technology |
 |---|---|
 | **Core Language** | TypeScript |
-| **Frontend** | Commander.js |
-| **Backend** | Node.js |
-| **Database** | PostgreSQL, Sequelize |
-| **Cache** | Redis |
+| **Frontend** | Commander.js, Klaur |
+| **Compiler** | Bun |
+| **Database** | SQLite, DrizzleORM |
 | **DevOps** | Docker, Jenkins |
-| **Testing** | Jest |
-| **Log** | Vlogging |
-| **Linter** | Lentte |
+| **Testing** | Vitest |
+| **Log** | [Vlogging](https://gitlab.com/tachecli_g/vlogging) |
+| **Linter** | [Lentte](https://gitlab.com/tachecli_g/lentte) |
 
 ---
 
@@ -126,10 +124,12 @@ Unlike traditional to-do list applications that focus mainly on graphical interf
 
 ### Prerequisites
 
+For local development, test, and contribution purposes, you will need to have the following software installed on your machine.
+
 ```bash
-node >= 18.0.0
-npm >= 9.0.0
-docker >= 24.0.0  # optional
+bun = 1.3.14
+pnpm >= 10.33.0
+docker >= 29.3.0  # optional
 ```
 
 ### Installation
@@ -137,38 +137,52 @@ docker >= 24.0.0  # optional
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/fevunge/project-name.git
-cd project-name
+git clone https://github.com/fevunge/tache-cli.git
+cd tache-cli
 ```
 
 **2. Install dependencies**
 
 ```bash
-npm install
-# or
-yarn install
+make setup
+```
+
+**2.1. Compile JS code**
+```bash
+make compile
+```
+
+**2.2. Build executable**
+```bash
+make 
 ```
 
 **3. Set up environment variables**
 
 ```bash
-cp .env.example .env
+make env
 ```
 
-**4. Run database migrations**
+**5. Run at development env**
 
 ```bash
-npm run db:migrate
-npm run db:seed  # optional: seed with sample data
+bun dev --help      # to run TypeScript code
+bun start --help    # to run compiled JavaScript code
 ```
 
-**5. Start the development server**
-
+**6. Run compiled project**
 ```bash
-npm run dev
-```
+chmod u+x ./bin/tache
 
-The app will be running at **[http://localhost:3000](http://localhost:3000)**
+./bin/tache --help 
+``` 
+
+**7. Install at your local machine**
+```bash
+make install
+
+tache --help
+```
 
 ---
 
@@ -178,11 +192,8 @@ Create a `.env` file in the root directory. See `.env.example` for reference.
 
 | Variable | Description | Required |
 |---|---|---|
-| `DATABASE_URL` | PostgreSQL connection string | ✅ |
-| `JWT_SECRET` | Secret key for JWT signing | ✅ |
-| `NEXT_PUBLIC_API_URL` | Base URL for API calls | ✅ |
-| `SMTP_HOST` | Email server host | ⬜ |
-| `STRIPE_SECRET_KEY` | Stripe payment secret | ⬜ |
+| `RESOURCE_PATH` | Path to resource files | [x] |
+| `LLM_API_KEY` | API key for LLM integration | [x] |
 
 ---
 
@@ -190,83 +201,25 @@ Create a `.env` file in the root directory. See `.env.example` for reference.
 
 ### Basic Example
 
-```typescript
-import { ProjectClient } from 'project-name';
-
-const client = new ProjectClient({
-  apiKey: process.env.API_KEY,
-  region: 'us-east-1',
-});
-
-const result = await client.doSomething({
-  input: 'your-data',
-  options: { verbose: true },
-});
-
-console.log(result);
+```shell
+# Create a new task
+$ tache create "Finish project report" --priority high --due "2024-07-01"
 ```
 
 ### Advanced Example
 
-```typescript
-// Advanced use case with error handling
-try {
-  const response = await client.advancedFeature({
-    param1: 'value',
-    param2: 42,
-  });
+```shell
+# Create a project with subtasks and dependencies
+$ tache create "Launch Marketing Campaign" --type project
 
-  if (response.success) {
-    // handle success
-  }
-} catch (error) {
-  console.error('Something went wrong:', error.message);
-}
+$ tache create "Design Ad Creatives" --parent "Launch Marketing Campaign" --due "2024-06-15"
+
+$ tache create "Set Up Email List" --parent "Launch Marketing Campaign" --due "2024-06-20"
+
+$ tache create "Schedule Social Media Posts" --parent "Launch Marketing Campaign" --due "2024-06-25"
 ```
 
 > 💡 **Tip:** Check the [`/examples`](./examples) directory for more comprehensive usage patterns.
-
----
-
-## Project Structure
-
-```
-tache-cli
-├── assets
-│   ├── logo
-│   │   └── tache.png
-│   └── screenshot
-├── dev
-│   └── db-desing.md
-├── docs
-│   ├── api.md
-│   ├── CHANGELOG.md
-│   ├── CONTRIBUTING.md
-│   ├── USAGE.md
-│   └── USERGUIDE.md
-├── resource
-├── src
-│   ├── application
-│   ├── domain
-│   ├── infrastructure
-│   │   ├── config
-│   │   └── database
-│   │       ├── config
-│   │       │   ├── external.db.config.ts
-│   │       │   └── local.db.config.ts
-│   │       └── client.database.ts
-│   ├── presentation
-│   └── shared
-│       ├── const
-│       └── utils
-│           └── os.service.ts
-├── test
-├── .gitignore
-├── Jenkinsfile
-├── package.json
-├── pnpm-lock.yaml
-└── README.md
-```
 
 ---
 
@@ -290,21 +243,6 @@ Full API reference available at [`/docs/api.md`](./docs/api.md)
 | ![Dashboard](https://placehold.co/380x220/1a1a2e/ffffff?text=Dashboard) | ![Detail](https://placehold.co/380x220/16213e/ffffff?text=Detail+View) | ![Mobile](https://placehold.co/180x320/0f3460/ffffff?text=Mobile) |
 
 </div>
-
----
-
-## Roadmap
-
-- [x] Core feature implementation
-- [x] REST API
-- [x] Authentication & authorization
-- [ ] Real-time notifications via WebSockets
-- [ ] Mobile application (React Native)
-- [ ] AI-powered suggestions engine
-- [ ] Multi-tenancy support
-- [ ] Internationalization (i18n)
-
-See [open issues](https://github.com/fevunge/repo-name/issues) for a full list of proposed features and known bugs.
 
 ---
 
@@ -351,7 +289,7 @@ chore(scope):    Maintenance tasks
 
 Made with 🧠 by [fevunge](https://github.com/fevunge)
 
-⭐ **Star this repo** if you found it helpful!
+⭐ **Star this repo** if you found it useful or interesting!
 
 </div>
 

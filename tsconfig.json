@@ -18,10 +18,13 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@resource/*": ["resource/*"],
+      "@vlogging": ["lib/vlogging"],
+      "@lentte": ["lib/lentte"]
     }
   }
 }

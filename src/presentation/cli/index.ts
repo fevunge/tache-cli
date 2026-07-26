@@ -1,11 +1,15 @@
-import { ASCII_HEAD } from "@src/shared/const/head";
-import { HELP_MESSAGE } from "@src/shared/const/help";
-import { tokenaizer_args } from "@src/presentation/parser";
-import { EventEmitter } from "events";
+import { Command } from "commander";
+import { taskCommand } from "../command/task.command";
+import { aboutCommand } from "../command/about.command";
+import { projectCommand } from "../command/project.command";
+import { meCommand } from "../command/me.command";
+import { scheduleCommand } from "../command/schedule.command";
 
-export const cli = (eventEmitter: EventEmitter) => {
-	console.log(ASCII_HEAD);
-  const args = process.argv.slice(2);
-  console.log(tokenaizer_args(args));
-  eventEmitter.emit("start");
+export const command_line_interface = (commandLine: Command) => {
+	commandLine.addCommand(taskCommand());
+	commandLine.addCommand(aboutCommand());
+	commandLine.addCommand(projectCommand());
+	commandLine.addCommand(meCommand());
+	commandLine.addCommand(scheduleCommand());
+	commandLine.parse();
 }
